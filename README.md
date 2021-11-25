@@ -1,24 +1,6 @@
-# README
+# Markr
+## Stile Education Code Challenge
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Markr is an API that receives XML from test marking machines, records the marks in a database, and reports statistics of all results for agiven test in JSON format. It seeks to implement the requirements as specified in SPEC.md.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+It is written in Ruby on Rails 6.x and Ruby 3.0.x, importing as few features as possible. Notes about decisions made during development can be found in NOTES.md.
