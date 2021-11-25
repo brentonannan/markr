@@ -10,3 +10,5 @@
     - active record models, probably, to keep overhead low; I'd like to implement a repository/command/query pattern but I think it'd blow out implementation time for this exercise.
   e. Response JSON serialisation
 3. I decided on strict content negotiation for the `/import` endpoint. In practice, I'd push back hard of having no authentication, but for this exercise, security by obscurity is the bare minimum.
+4. I went with a functional approach for parsing, since it is done once per request, and having a `Parser` object always felt wrong to me.
+  a. Using `class << self` (even for module) is the only way I know of in ruby to have private functions.
