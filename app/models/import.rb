@@ -1,4 +1,8 @@
 class Import
+  def self.parse(xml)
+    new(Import::ParseXml.call(xml))
+  end
+
   def initialize(data)
     @data = data
   end

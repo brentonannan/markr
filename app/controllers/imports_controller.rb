@@ -4,8 +4,8 @@ class ImportsController < ApplicationController
   before_action :content_negotiation
 
   def create
-    data = Import::ParseXml.call(request.raw_post)
-    return render(status: 400) if data.nil?
+    import = Import.parse(request.raw_post)
+    return render(status: 400) if !import.valid?
   end
 
   private

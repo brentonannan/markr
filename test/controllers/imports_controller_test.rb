@@ -13,5 +13,23 @@ class ImportsControllerTest < ActionDispatch::IntegrationTest
         assert_response(406)
       end
     end
+
+    it 'returns bad request for invalid XML' do
+      invalid_xml = <<-XML
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <mcq-test-results>
+          <mcq-test-result scanned-on="2017-12-04T12:12:10+11:00">
+            <first-name>Gary</first-name>
+            <last-name>McGhernikan</last-name>
+            <student-number>777</student-number>
+            <test-id>1234</test-id>
+            <summary-marks available="20" obtained="13" />
+          </mcq-test-result>
+      XML
+
+      create(body: invalid_xml)
+
+      assert_response(400)
+    end
   end
 end
