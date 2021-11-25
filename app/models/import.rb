@@ -3,13 +3,13 @@ class Import
     new(Import::ParseXml.call(xml))
   end
 
-  def initialize(data)
-    @data = data
+  def initialize(data, contract: nil)
+    @contract = contract || Contract.new.call(data)
   end
 
-  attr_reader :data
+  attr_reader :contract
 
   def valid?
-    !data.nil?
+    contract.success?
   end
 end
