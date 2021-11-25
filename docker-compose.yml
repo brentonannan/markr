@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  app:
+    build:
+      context: .
+      target: development
+      args:
+        - APP_DIR=/var/app
+    image: markr:latest
+    volumes:
+      - .:/var/app
+      - workr_gems:/usr/local/bundle
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+  db:
+    image: postgres:14-alpine
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - markr_db:/var/lib/postgresql/data
+
+volumes:
+  markr_gems:
+  markr_db:
