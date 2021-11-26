@@ -20,3 +20,4 @@
 
   When calculating stats, I'll use percentages calculated from the denormalised data.
 7. I assume the percentile score is _the inclusive percentile_ score, as defined [on wikipedia](https://en.wikipedia.org/wiki/Percentile). In a product development situation, I'd get clarification from a PM.
+8. It would've been super helpful to provide candidates with JSON matching the expected aggregate in sample_data.xml... I'm fairly confident what I've done is pretty correct, but that would allow me to integration test from end to end.
