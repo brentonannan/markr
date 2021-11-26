@@ -13,3 +13,9 @@
 4. I went with a functional approach for parsing, since it is done once per request, and having a `Parser` object always felt wrong to me.
   a. Using `class << self` (even for module) is the only way I know of in ruby to have private functions.
 5. I used dry-validations for straightforward, declarative contracts.
+6. I kept test available score data denormalised (stored in individual records) to avoid the situation where:
+  - 500 students get results marked out of 20
+  - 501st student gets result marked out of 21 for some reason
+  - The first 500 students' maximum mark would be 20/21 (~96%) if test available marks scores were normalised and saved under a `Test` record
+
+  When calculating stats, I'll use percentages calculated from the denormalised data.
