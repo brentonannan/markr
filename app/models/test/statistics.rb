@@ -10,11 +10,11 @@ class Test::Statistics
   end
 
   def min
-    scores.first
+    scores.first.to_f
   end
 
   def max
-    scores.last
+    scores.last.to_f
   end
 
   def count
