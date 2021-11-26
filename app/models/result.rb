@@ -9,4 +9,8 @@ class Result < ApplicationRecord
     self.obtained_mark = [self.obtained_mark, obtained_mark].max
     self.available_marks = [self.available_marks, available_marks].max
   end
+
+  def score
+    Rational(obtained_mark, available_marks)
+  end
 end

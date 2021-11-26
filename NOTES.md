@@ -19,3 +19,4 @@
   - The first 500 students' maximum mark would be 20/21 (~96%) if test available marks scores were normalised and saved under a `Test` record
 
   When calculating stats, I'll use percentages calculated from the denormalised data.
+7. I assume the percentile score is _the inclusive percentile_ score, as defined [on wikipedia](https://en.wikipedia.org/wiki/Percentile). In a product development situation, I'd get clarification from a PM.

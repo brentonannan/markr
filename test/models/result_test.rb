@@ -30,4 +30,10 @@ class ResultTest < ActiveSupport::TestCase
       assert_equal result.available_marks, 9
     end
   end
+
+  describe 'score' do
+    it 'returns a Rational' do
+      assert Result.new(obtained_mark: 7, available_marks: 9), Rational(7, 9)
+    end
+  end
 end
