@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_11_25_150159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "results", force: :cascade do |t|
+    t.string "test_id"
+    t.string "student_number"
+    t.integer "obtained_mark"
+    t.integer "available_marks"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["test_id", "student_number"], name: "index_results_on_test_id_and_student_number", unique: true
+  end
 
 end
