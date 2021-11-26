@@ -13,4 +13,8 @@ class Result < ApplicationRecord
   def score
     Rational(obtained_mark, available_marks)
   end
+
+  def percentage
+    (score * 100).to_f
+  end
 end

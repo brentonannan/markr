@@ -1,20 +1,20 @@
 class Test::Statistics
   def initialize(test)
-    @scores = test.results.map(&:score).sort
+    @scores = test.results.map(&:percentage).sort
   end
 
   attr_reader :scores
 
   def mean
-    @_mean ||= scores.sum.to_f / count
+    @_mean ||= scores.sum / count
   end
 
   def min
-    scores.first.to_f
+    scores.first
   end
 
   def max
-    scores.last.to_f
+    scores.last
   end
 
   def count
@@ -22,7 +22,7 @@ class Test::Statistics
   end
 
   def stddev
-    @_stddev ||= Math.sqrt((scores.map { |score| (score - mean) ** 2 }.sum.to_f) / count)
+    @_stddev ||= Math.sqrt((scores.map { |score| (score - mean) ** 2 }.sum) / count)
   end
 
   def p(percentile)
@@ -30,7 +30,7 @@ class Test::Statistics
 
     rank = count * percentile / 100.0
     index = rank.ceil - 1
-    scores[index].to_f
+    scores[index]
   end
 
   def summary
