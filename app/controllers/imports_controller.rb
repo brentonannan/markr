@@ -6,6 +6,9 @@ class ImportsController < ApplicationController
   def create
     import = Import.parse(request.raw_post)
     return render(status: 400) if !import.valid?
+
+    import.save!
+    render(status: 201)
   end
 
   private
