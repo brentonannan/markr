@@ -21,3 +21,4 @@ The major change that could be made would be for the statistics summaries to be 
 I skipped a couple things so as to keep my time investment down:
 - No authentication/authorisation! This absolutely makes this service not-production-ready, and would need to be implemented before shipping it.
 - I put some minor business logic into the controller layer (e.g. directly invoking contracts and persistence instead of passing it off to a business object) and in the model namespace (I personally like an `app/domain` directory for business logic.
+- There were a couple of domain logic assumptions that I made, which I outlined in [NOTES.md](NOTES.md)
